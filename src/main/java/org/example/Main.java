@@ -47,6 +47,7 @@ public class Main {
         book.removeEmployee(8);
         book.removeEmployee(8);
         book.printEmployees();
+        System.out.println(book);
 
     }
 

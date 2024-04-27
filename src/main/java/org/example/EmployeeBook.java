@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class EmployeeBook {
     private Employee[] employees;
 
@@ -360,4 +363,34 @@ public class EmployeeBook {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeBook that = (EmployeeBook) o;
+        return length == that.length && Arrays.equals(employees, that.employees);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(length);
+        result = 31 * result + Arrays.hashCode(employees);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Employee employee : employees) {
+            if (employee != null) {
+                builder.append("  ");
+                builder.append(employee.toString())
+                        .append("\n");
+            }
+        }
+        return "EmployeeBook:\n" +
+                " Employees:\n" + builder +
+                " Length:" + length
+                ;
+    }
 }
