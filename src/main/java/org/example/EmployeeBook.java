@@ -11,14 +11,16 @@ public class EmployeeBook {
     public EmployeeBook(int numberOfWorkspaces) {
         employees = new Employee[length];
     }
+
     public int getLength() {
         return length;
     }
+
     // Добавляем сотрудника, если есть место
-    public boolean addNewEmployee(Employee employee){
+    public boolean addNewEmployee(Employee employee) {
         boolean isAdded = false;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] == null){
+            if (employees[i] == null) {
                 employees[i] = employee;
                 return true;
             }
@@ -27,12 +29,12 @@ public class EmployeeBook {
     }
 
     // Удаляем сотрудника по введенному ID
-    public void removeEmployee(int id){
+    public void removeEmployee(int id) {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] == null){
+            if (employees[i] == null) {
                 continue;
             }
-            if (employees[i].getId() == id){
+            if (employees[i].getId() == id) {
                 employees[i] = null;
                 return;
             }
@@ -42,7 +44,7 @@ public class EmployeeBook {
     //Получаем сотрудника по введенному ID
     public Employee getEmployeeById(int id) {
         for (Employee employee : employees) {
-            if (employee.getId() == id){
+            if (employee.getId() == id) {
                 return employee;
             }
         }
@@ -59,9 +61,8 @@ public class EmployeeBook {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно вывести информацию по сотрудникам. Список сотрудников пуст.");
         }
-        for (Employee e :
-                employees) {
-            if (e == null){
+        for (Employee e : employees) {
+            if (e == null) {
                 continue;
             }
             System.out.println(e);
@@ -75,7 +76,7 @@ public class EmployeeBook {
         }
         int salarySum = 0;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             salarySum += employee.getSalary();
@@ -84,13 +85,13 @@ public class EmployeeBook {
     }
 
     // Найти сотрудника с минимальной ЗП
-    public Employee findLessCostEmployee(){
+    public Employee findLessCostEmployee() {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно найти наименьшую зарплату. Список сотрудников пуст.");
         }
         Employee min = null;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (min == null) {
@@ -105,13 +106,13 @@ public class EmployeeBook {
     }
 
     // Найти сотрудника с максимальной ЗП
-    public Employee findMoreCostEmployee(){
+    public Employee findMoreCostEmployee() {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно найти наибольшую. Список сотрудников пуст.");
         }
         Employee max = null;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (max == null) {
@@ -126,7 +127,7 @@ public class EmployeeBook {
     }
 
     // Получить среднее значение зарплат
-    public double calculateEverageSalary(){
+    public double calculateEverageSalary() {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно найти среднее значение зарплат. Список сотрудников пуст.");
         }
@@ -134,17 +135,15 @@ public class EmployeeBook {
     }
 
     // Вывести на экран фио всех сотрудников
-    public void printEmployeesFullNames(){
+    public void printEmployeesFullNames() {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно вывести на экран ФИО сотрудников. Список сотрудников пуст.");
         }
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
-            System.out.println(employee.getFirstName() +
-                    " " + employee.getMiddleName() +
-                    " " + employee.getLastName());
+            System.out.println(employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName());
         }
     }
 
@@ -155,7 +154,7 @@ public class EmployeeBook {
         }
         percent = percent / 100;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             employee.setSalary(employee.getSalary() + (int) (employee.getSalary() * percent));
@@ -174,7 +173,7 @@ public class EmployeeBook {
         }
         Employee min = null;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() != division) {
@@ -204,7 +203,7 @@ public class EmployeeBook {
         }
         Employee max = null;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() != division) {
@@ -234,7 +233,7 @@ public class EmployeeBook {
         }
         int salarySum = 0;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() != division) {
@@ -255,7 +254,7 @@ public class EmployeeBook {
         }
         int employeesInDivision = 0;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() == division) {
@@ -278,7 +277,7 @@ public class EmployeeBook {
         }
         percent = percent / 100;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() != division) {
@@ -298,19 +297,16 @@ public class EmployeeBook {
         }
         boolean isEmpty = true;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getDivision() != division) {
                 continue;
             }
             isEmpty = false;
-            System.out.println("ID сотрудника: " + employee.getId() +
-                    ", ФИО: " + employee.getFirstName() +
-                    " " + employee.getMiddleName() +
-                    " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
+            System.out.println("ID сотрудника: " + employee.getId() + ", ФИО: " + employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
         }
-        if (isEmpty){
+        if (isEmpty) {
             System.out.println("В " + division + " отделе нет сотрудников");
         }
     }
@@ -324,15 +320,12 @@ public class EmployeeBook {
         }
         boolean isFind = false;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getSalary() <= salaryEdge) {
                 isFind = true;
-                System.out.println("ID сотрудника: " + employee.getId() +
-                        ", ФИО: " + employee.getFirstName() +
-                        " " + employee.getMiddleName() +
-                        " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
+                System.out.println("ID сотрудника: " + employee.getId() + ", ФИО: " + employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
             }
         }
         if (!isFind) {
@@ -347,15 +340,12 @@ public class EmployeeBook {
         }
         boolean isFind = false;
         for (Employee employee : employees) {
-            if (employee == null){
+            if (employee == null) {
                 continue;
             }
             if (employee.getSalary() >= salaryEdge) {
                 isFind = true;
-                System.out.println("ID сотрудника: " + employee.getId() +
-                        ", ФИО: " + employee.getFirstName() +
-                        " " + employee.getMiddleName() +
-                        " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
+                System.out.println("ID сотрудника: " + employee.getId() + ", ФИО: " + employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName() + ", Размер ЗП: " + employee.getSalary());
             }
         }
         if (!isFind) {
@@ -384,13 +374,9 @@ public class EmployeeBook {
         for (Employee employee : employees) {
             if (employee != null) {
                 builder.append("  ");
-                builder.append(employee.toString())
-                        .append("\n");
+                builder.append(employee.toString()).append("\n");
             }
         }
-        return "EmployeeBook:\n" +
-                " Employees:\n" + builder +
-                " Length:" + length
-                ;
+        return "EmployeeBook:\n" + " Employees:\n" + builder + " Length:" + length;
     }
 }

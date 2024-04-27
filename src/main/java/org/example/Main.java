@@ -31,7 +31,7 @@ public class Main {
         System.out.println();
         System.out.println("Среднее значение зарплат в отделе: " + book.calculateEverageSalaryInDivision(3));
         System.out.println();
-        book.salaryIndexationInDivision(15,3);
+        book.salaryIndexationInDivision(15, 3);
         System.out.println();
         System.out.println("Сотрудники третьего отдела:");
         book.printEmployeesInfoInDivision(3);

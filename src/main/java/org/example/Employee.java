@@ -17,11 +17,11 @@ public class Employee {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        if (division <=0 || division >= 6){
+        if (division <= 0 || division >= 6) {
             throw new IllegalArgumentException("Ошибка!! Отдела под номером " + division + " не существует");
         }
         this.division = division;
-        if (salary < 0){
+        if (salary < 0) {
             throw new IllegalArgumentException("Заработная плата не может быть ниже нуля");
         }
         this.salary = salary;
@@ -50,7 +50,7 @@ public class Employee {
     }
 
     public void setDivision(int division) {
-        if (division <=0 || division >= 6){
+        if (division <= 0 || division >= 6) {
             throw new IllegalArgumentException("Ошибка!! Отдела под номером " + division + " не существует!");
         }
         this.division = division;
@@ -61,7 +61,7 @@ public class Employee {
     }
 
     public void setSalary(int salary) {
-        if (salary < 0){
+        if (salary < 0) {
             throw new IllegalArgumentException("Ошибка!! Заработная плата не может быть ниже нуля!");
         }
         this.salary = salary;
@@ -82,7 +82,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  "Id: " + id +
+        return "Id: " + id +
                 ", ФИО: " + firstName + ' ' + middleName + ' ' + lastName + ", отдел: " + division +
                 ", Зарплата: " + salary + '.';
     }
