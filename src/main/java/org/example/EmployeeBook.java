@@ -9,7 +9,8 @@ public class EmployeeBook {
     private int length = 10;
 
     public EmployeeBook(int numberOfWorkspaces) {
-        employees = new Employee[length];
+        employees = new Employee[numberOfWorkspaces];
+        length = numberOfWorkspaces;
     }
 
     public int getLength() {
@@ -44,6 +45,9 @@ public class EmployeeBook {
     //Получаем сотрудника по введенному ID
     public Employee getEmployeeById(int id) {
         for (Employee employee : employees) {
+            if (employee == null) {
+                continue;
+            }
             if (employee.getId() == id) {
                 return employee;
             }
@@ -131,7 +135,14 @@ public class EmployeeBook {
         if (employees == null || employees.length == 0) {
             throw new NullPointerException("Невозможно найти среднее значение зарплат. Список сотрудников пуст.");
         }
-        return calculateTotalSalarySum() / employees.length;
+        int countOfEmployees = 0;
+        for (Employee employee : employees) {
+            if (employee == null) {
+                continue;
+            }
+            countOfEmployees++;
+        }
+        return calculateTotalSalarySum() / countOfEmployees;
     }
 
     // Вывести на экран фио всех сотрудников
